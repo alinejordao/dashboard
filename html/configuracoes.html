@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR" class="layout-menu-fixed layout-compact" data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configurações | Engenharia de Infraestrutura e Cloud</title>
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/vendor/fonts/iconify-icons.css" />
+  <link rel="stylesheet" href="../assets/vendor/css/core.css" />
+  <link rel="stylesheet" href="../assets/css/demo.css" />
+  <link rel="stylesheet" href="../assets/css/vivo.css" />
+  <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <script src="../assets/vendor/js/helpers.js"></script>
+  <script src="../assets/js/config.js"></script>
+</head>
+<body class="pagina-configuracoes">
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+        <div class="app-brand demo">
+          <a href="coe.html" class="app-brand-link brand-infra-cloud">
+            <span class="app-brand-logo demo brand-logo-area">
+              <img src="../assets/img/icons/brands/logo-vivo.png" alt="Vivo" class="brand-logo-vivo" />
+            </span>
+            <span class="app-brand-text demo menu-text brand-area-name">ENG INFRA E CLOUD</span>
+          </a>
+          <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+            <i class="bx bx-chevron-left d-block d-xl-none align-middle"></i>
+          </a>
+        </div>
+        <div class="menu-divider mt-0"></div>
+        <div class="menu-inner-shadow"></div>
+        <ul class="menu-inner py-1">
+          <li class="menu-item"><a href="coe.html" class="menu-link"><i class="menu-icon tf-icons bx bx-network-chart"></i><div>COE</div></a></li>
+          <li class="menu-item"><a href="operacoes.html" class="menu-link"><i class="menu-icon tf-icons bx bx-server"></i><div>Operações</div></a></li>
+        </ul>
+        <div class="menu-configuracoes-rodape">
+          <a href="configuracoes.html" class="menu-link menu-configuracoes-link ativo" aria-current="page">
+            <span class="menu-configuracoes-icone"><i class="bx bx-cog"></i></span>
+            <span class="menu-configuracoes-texto"><strong>Configurações</strong><small>Central dos relatórios</small></span>
+            <i class="bx bx-chevron-right menu-configuracoes-seta"></i>
+          </a>
+        </div>
+      </aside>
+
+      <div class="layout-page">
+        <div class="container-xxl mt-4">
+          <header class="card shadow-sm boletim-header configuracoes-header">
+            <div class="card-body boletim-header-body">
+              <div class="boletim-header-conteudo">
+                <div class="boletim-identidade">
+                  <span class="boletim-kicker">Administração dos relatórios</span>
+                  <h1>Central de Configurações</h1>
+                  <h2>Engenharia de Infraestrutura e Cloud</h2>
+                  <div class="boletim-areas"><span>Dados</span><i></i><span>Publicação</span><i></i><span>Impressão em PDF</span></div>
+                </div>
+                <span class="configuracoes-selo"><i class="bx bx-shield-quarter"></i> Área administrativa</span>
+              </div>
+            </div>
+          </header>
+
+          <div class="content-wrapper">
+            <main class="container-xxl flex-grow-1 container-p-y configuracoes-main">
+              <section class="config-impressao-grid" aria-label="Impressão dos relatórios">
+                <article class="card config-impressao-card config-impressao-coe">
+                  <div class="card-body">
+                    <span class="config-icone"><i class="bx bx-network-chart"></i></span>
+                    <div><small>RELATÓRIO EXECUTIVO</small><h2>COE</h2><p>Visualize o relatório formatado e abra a janela de impressão.</p></div>
+                    <a href="coe.html?imprimir=1" target="_blank" class="config-btn-imprimir"><i class="bx bx-printer"></i> Gerar PDF</a>
+                  </div>
+                </article>
+                <article class="card config-impressao-card config-impressao-operacoes">
+                  <div class="card-body">
+                    <span class="config-icone"><i class="bx bx-server"></i></span>
+                    <div><small>RELATÓRIO EXECUTIVO</small><h2>Operações</h2><p>Visualize o relatório formatado e abra a janela de impressão.</p></div>
+                    <a href="operacoes.html?imprimir=1" target="_blank" class="config-btn-imprimir"><i class="bx bx-printer"></i> Gerar PDF</a>
+                  </div>
+                </article>
+              </section>
+
+              <div class="config-pendencia-pdf" role="note">
+                <i class="bx bx-time-five"></i>
+                <div><strong>Revisão de impressão pendente</strong><span>Redimensionar e alinhar os dois relatórios para geração final em PDF.</span></div>
+                <small>VER DEPOIS</small>
+              </div>
+
+              <section class="card config-dados-card">
+                <div class="card-body">
+                  <header class="config-dados-header">
+                    <div><span class="config-eyebrow">Atualização dos dashboards</span><h2>Dados dos relatórios</h2><p>Escolha o relatório e preencha as informações por seção.</p></div>
+                    <span class="config-rascunho"><i class="bx bx-save"></i> Salvamento local</span>
+                  </header>
+
+                  <ul class="nav nav-pills config-tabs" role="tablist">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#config-coe" type="button"><i class="bx bx-network-chart"></i> COE</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#config-operacoes" type="button"><i class="bx bx-server"></i> Operações</button></li>
+                  </ul>
+
+                  <div class="tab-content config-tab-content">
+                    <div class="tab-pane fade show active" id="config-coe">
+                      <form data-form-configuracao data-relatorio="coe">
+                        <div class="config-form-secao">
+                          <div class="config-form-titulo"><span><i class="bx bx-calendar"></i></span><div><h3>Identificação do boletim</h3><p>Competência e controle da edição.</p></div></div>
+                          <div class="config-campos">
+                            <label>Competência<input class="form-control" name="competencia" value="Agosto / 2026" /></label>
+                            <label>Número da edição<input class="form-control" name="edicao" value="01" /></label>
+                            <label>Data de atualização<input class="form-control" type="date" name="atualizacao" value="2026-08-14" /></label>
+                          </div>
+                        </div>
+                        <div class="config-form-secao">
+                          <div class="config-form-titulo"><span><i class="bx bx-line-chart"></i></span><div><h3>Vivo Virtualiza</h3><p>Valores acumulados da evolução das migrações.</p></div></div>
+                          <div class="config-campos">
+                            <label>Atingido atual<input class="form-control" type="number" name="migracoes_atingido" value="4533" /></label>
+                            <label>Meta atual<input class="form-control" type="number" name="migracoes_meta" value="4979" /></label>
+                            <label>Meta final<input class="form-control" type="number" name="migracoes_meta_final" value="6000" /></label>
+                          </div>
+                        </div>
+                        <div class="config-form-secao">
+                          <div class="config-form-titulo"><span><i class="bx bx-grid-alt"></i></span><div><h3>Demais módulos do COE</h3><p>Contratos, workshops, POCs, automações e obsolescência.</p></div></div>
+                          <div class="config-campos config-campos-texto">
+                            <label>Destaques do período<textarea class="form-control" name="destaques" rows="4" placeholder="Registre os principais destaques executivos..."></textarea></label>
+                            <label>Observações para publicação<textarea class="form-control" name="observacoes" rows="4" placeholder="Informações de apoio ou pendências..."></textarea></label>
+                          </div>
+                        </div>
+                        <div class="config-form-acoes"><span class="config-feedback" aria-live="polite"></span><button class="config-btn-salvar" type="submit"><i class="bx bx-save"></i> Salvar rascunho COE</button></div>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="config-operacoes">
+                      <form data-form-configuracao data-relatorio="operacoes">
+                        <div class="config-form-secao">
+                          <div class="config-form-titulo"><span><i class="bx bx-calendar"></i></span><div><h3>Identificação do boletim</h3><p>Competência e controle da edição.</p></div></div>
+                          <div class="config-campos">
+                            <label>Competência<input class="form-control" name="competencia" value="Agosto / 2026" /></label>
+                            <label>Número da edição<input class="form-control" name="edicao" value="01" /></label>
+                            <label>Data de atualização<input class="form-control" type="date" name="atualizacao" value="2026-08-14" /></label>
+                          </div>
+                        </div>
+                        <div class="config-form-secao">
+                          <div class="config-form-titulo"><span><i class="bx bx-pulse"></i></span><div><h3>Indicadores operacionais</h3><p>Valores dos oito cards de indicadores do relatório.</p></div></div>
+                          <div class="config-campos config-campos-kpis">
+                            <label>Incidentes<input class="form-control" type="number" name="incidentes" value="26" /></label>
+                            <label>RITMs<input class="form-control" type="number" name="ritms" value="7" /></label>
+                            <label>PRBs<input class="form-control" type="number" name="prbs" value="1" /></label>
+                            <label>PTASKs<input class="form-control" type="number" name="ptasks" value="0" /></label>
+                            <label>Alertas QA<input class="form-control" type="number" name="alertas_qa" value="92" /></label>
+                            <label>Alertas PRD<input class="form-control" type="number" name="alertas_prd" value="155" /></label>
+                            <label>INC HW<input class="form-control" type="number" name="inc_hw" value="25" /></label>
+                            <label>MV América<input class="form-control" type="number" name="mv_america" value="57" /></label>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-disponibilidade">
+                          <div class="config-form-titulo"><span><i class="bx bx-line-chart"></i></span><div><h3>Disponibilidade Mensal</h3><p>Os dados adicionados atualizam os cards “Disponibilidade Mensal” e “MTTR — Tempo Médio de Recuperação”.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-disponibilidade">
+                              <label>Mês
+                                <select class="form-select" name="disp_mes" id="dispMes">
+                                  <option value="Set" selected>Setembro</option><option value="Out">Outubro</option>
+                                  <option value="Nov">Novembro</option><option value="Dez">Dezembro</option>
+                                  <option value="Jan">Janeiro</option><option value="Fev">Fevereiro</option>
+                                  <option value="Mar">Março</option><option value="Abr">Abril</option>
+                                  <option value="Mai">Maio</option><option value="Jun">Junho</option>
+                                  <option value="Jul">Julho</option><option value="Ago">Agosto</option>
+                                </select>
+                              </label>
+                              <label>Ano<input class="form-control" type="number" min="2026" max="2100" name="disp_ano" id="dispAno" value="2026" /></label>
+                              <label>Número de incidentes<input class="form-control" type="number" min="0" name="disp_incidentes" id="dispIncidentes" placeholder="Ex.: 2" /></label>
+                              <label>Horas de impacto<input class="form-control" name="disp_impacto" id="dispImpacto" placeholder="Ex.: 1h 35min" /></label>
+                              <label>Disponibilidade (%)<input class="form-control" type="number" min="0" max="100" step="0.01" name="disp_disponibilidade" id="dispDisponibilidade" placeholder="Ex.: 99,82" /></label>
+                            </div>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> O comparativo e a média móvel do MTTR serão calculados automaticamente.</small>
+                              <button class="config-btn-adicionar" type="button" id="adicionarDisponibilidade"><i class="bx bx-plus"></i> Adicionar ao histórico</button>
+                            </div>
+                            <div class="config-historico" id="historicoDisponibilidade" aria-live="polite"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackDisponibilidade"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao">
+                          <div class="config-form-titulo"><span><i class="bx bx-grid-alt"></i></span><div><h3>Gestão operacional</h3><p>Fornecedores, iniciativas, mudanças e informações relevantes.</p></div></div>
+                          <div class="config-campos config-campos-texto">
+                            <label>Destaques do período<textarea class="form-control" name="destaques" rows="4" placeholder="Registre os principais destaques executivos..."></textarea></label>
+                            <label>Observações para publicação<textarea class="form-control" name="observacoes" rows="4" placeholder="Informações de apoio ou pendências..."></textarea></label>
+                          </div>
+                        </div>
+                        <div class="config-form-acoes"><span class="config-feedback" aria-live="polite"></span><button class="config-btn-salvar" type="submit"><i class="bx bx-save"></i> Salvar rascunho Operações</button></div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </main>
+          </div>
+          <footer class="content-footer footer bg-footer-theme"><div class="container-xxl"><div class="footer-container py-4">© 2026 · Engenharia de Infraestrutura e Cloud</div></div></footer>
+        </div>
+      </div>
+    </div>
+    <div class="layout-overlay layout-menu-toggle"></div>
+  </div>
+  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../assets/vendor/js/bootstrap.js"></script>
+  <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="../assets/vendor/js/menu.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/configuracoes-dashboard.js?v=20260814-2"></script>
+</body>
+</html>

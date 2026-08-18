@@ -1,0 +1,664 @@
+<!doctype html>
+
+<html lang="pt-BR" class="layout-menu-fixed layout-compact" data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <title>COE | Engenharia de Infraestrutura e Cloud</title>
+
+  <meta name="description" content="" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/vendor/fonts/iconify-icons.css" />
+
+  <!-- Core CSS -->
+  <!-- build:css assets/vendor/css/theme.css  -->
+
+  <link rel="stylesheet" href="../assets/vendor/css/core.css" />
+  <link rel="stylesheet" href="../assets/css/demo.css" />
+  <link rel="stylesheet" href="../assets/css/vivo.css" />
+
+  <!-- Vendors CSS -->
+
+  <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+  <!-- endbuild -->
+
+  <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+  <!-- Page CSS -->
+
+  <!-- Helpers -->
+  <script src="../assets/vendor/js/helpers.js"></script>
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+
+  <script src="../assets/js/config.js"></script>
+</head>
+
+<body>
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+      <!-- Menu -->
+
+      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+        <div class="app-brand demo">
+          <a href="index.html" class="app-brand-link brand-infra-cloud">
+            <span class="app-brand-logo demo brand-logo-area">
+              <img src="../assets/img/icons/brands/logo-vivo.png" alt="Vivo" class="brand-logo-vivo"
+                onerror="this.style.display='none'" />
+            </span>
+            <span class="app-brand-text demo menu-text brand-area-name">ENG INFRA E CLOUD</span>
+          </a>
+
+
+          <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+            <i class="bx bx-chevron-left d-block d-xl-none align-middle"></i>
+          </a>
+        </div>
+
+        <div class="menu-divider mt-0"></div>
+
+        <div class="menu-inner-shadow"></div>
+
+        <ul class="menu-inner py-1">
+          <!-- Dashboards -->
+          <li class="menu-item active">
+            <a href="coe.html" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-network-chart"></i>
+              <div>COE</div>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="operacoes.html" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-server"></i>
+              <div>Operações</div>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="menu-configuracoes-rodape">
+          <a href="configuracoes.html" class="menu-link menu-configuracoes-link" id="abrirConfiguracoes"
+            aria-label="Abrir configurações do dashboard">
+            <span class="menu-configuracoes-icone"><i class="bx bx-cog"></i></span>
+            <span class="menu-configuracoes-texto">
+              <strong>Configurações</strong>
+              <small>Personalizar dashboard</small>
+            </span>
+            <i class="bx bx-chevron-right menu-configuracoes-seta"></i>
+          </a>
+        </div>
+      </aside>
+      <!-- / Menu -->
+
+      <!-- Layout container -->
+      <div class="layout-page">
+        <!-- Navbar -->
+        <div class="container-xxl mt-4">
+          <header class="card shadow-sm boletim-header coe-boletim-header">
+            <div class="card-body boletim-header-body">
+              <div class="boletim-header-conteudo">
+                <div class="boletim-identidade">
+                  <span class="boletim-kicker">Informativo executivo mensal</span>
+                  <h1>Boletim Executivo - COE</h1>
+                  <h2>Engenharia de Infraestrutura e Cloud</h2>
+                  <div class="boletim-areas">
+                    <span>Infraestrutura</span><i></i><span>Operações</span><i></i>
+                    <span>Cloud</span><i></i><span>Virtualização</span><i></i>
+                    <span>Automação</span><i></i><span>Segurança</span>
+                  </div>
+                </div>
+                <div class="coe-header-logo" aria-label="Identidade visual do COE">
+                  <img src="../assets/img/icons/brands/coe.png" alt="COE"
+                    onerror="this.parentElement.classList.add('logo-ausente')" />
+                </div>
+                <div class="boletim-meta">
+                  <div class="boletim-meta-item">
+                    <i class="bx bx-calendar"></i>
+                    <div><span>Competência</span><strong>Agosto / 2026</strong></div>
+                  </div>
+                  <div class="boletim-meta-item">
+                    <i class="bx bx-file"></i>
+                    <div><span>Edição</span><strong>Boletim Nº 01</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <!-- / Navbar -->
+
+
+
+
+
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Área de conteúdo do COE -->
+              <main id="coeDashboard" class="coe-dashboard" aria-labelledby="titulo-area-coe">
+                <div class="coe-primeira-linha">
+                <section class="card shadow-sm border-0 coe-burnup-card" aria-labelledby="titulo-area-coe">
+                  <div class="card-body">
+                    <header class="coe-card-header">
+                      <div>
+                        <span class="coe-card-kicker">Vivo Virtualiza</span>
+                        <h2 id="titulo-area-coe">Evolução das migrações</h2>
+                        <p>Acompanhamento acumulado das máquinas virtuais migradas e desativadas.</p>
+                      </div>
+                      <span class="coe-periodo"><i class="bx bx-calendar"></i> 2025 — Ago/2026</span>
+                    </header>
+
+                    <div class="coe-burnup-resumo" aria-label="Resumo das migrações em agosto">
+                      <div class="coe-resumo-item coe-resumo-destaque">
+                        <span>Atingido</span><strong>4.533</strong><small>VMs migradas</small>
+                      </div>
+                      <div class="coe-resumo-item">
+                        <span>Meta</span><strong>4.979</strong><small>Agosto</small>
+                      </div>
+                      <div class="coe-resumo-item">
+                        <span>Aderência</span><strong>91,0%</strong><small>da meta mensal</small>
+                      </div>
+                      <div class="coe-resumo-item coe-resumo-gap">
+                        <span>Diferença</span><strong>−446</strong><small>VMs para a meta</small>
+                      </div>
+                    </div>
+
+                    <div class="coe-chart-shell">
+                      <div id="coeMigracoesChart" role="img"
+                        aria-label="Gráfico de evolução acumulada das migrações realizadas em comparação com a meta"></div>
+                    </div>
+                  </div>
+                </section>
+
+                <aside class="card shadow-sm border-0 coe-jornada-card" aria-labelledby="titulo-progresso-jornada">
+                  <div class="card-body">
+                    <header class="coe-jornada-header">
+                      <span class="coe-card-kicker">Vivo Virtualiza</span>
+                      <h2 id="titulo-progresso-jornada">Progresso da Jornada</h2>
+                      <p>Visão consolidada do avanço do programa.</p>
+                    </header>
+
+                    <div class="coe-gauges-stack">
+                      <section class="coe-gauge-item" aria-label="Programa 25 por cento concluído">
+                        <div id="coeGaugePrograma" class="coe-gauge-chart"></div>
+                        <div class="coe-gauge-caption">
+                          <span class="coe-gauge-icon coe-gauge-icon-roxo"><i class="bx bx-trophy"></i></span>
+                          <div><strong>Programa</strong><small>Concluído</small></div>
+                        </div>
+                      </section>
+
+                      <section class="coe-gauge-item" aria-label="Meta de 2026 atingida em 63 por cento">
+                        <div id="coeGaugeMeta" class="coe-gauge-chart"></div>
+                        <div class="coe-gauge-caption">
+                          <span class="coe-gauge-icon coe-gauge-icon-azul"><i class="bx bx-target-lock"></i></span>
+                          <div><strong>Meta 2026</strong><small>Atingida</small></div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </aside>
+                </div>
+
+                <section class="card shadow-sm border-0 coe-contratos-card" aria-labelledby="titulo-gestao-contratos">
+                  <div class="card-body">
+                    <header class="coe-contratos-header">
+                      <div>
+                        <span class="coe-card-kicker">Governança e fornecedores</span>
+                        <h2 id="titulo-gestao-contratos">Gestão de Contratos</h2>
+                        <p>Visão executiva dos contratos, vencimentos e frentes de renovação.</p>
+                      </div>
+                      <div class="coe-contratos-resumo" aria-label="Resumo da carteira de contratos">
+                        <span><strong id="coeQtdContratos">9</strong> contratos</span>
+                        <span class="resumo-andamento"><strong id="coeQtdAndamento">2</strong> em andamento</span>
+                        <span class="resumo-pendente"><strong id="coeQtdPendentes">6</strong> a validar</span>
+                      </div>
+                    </header>
+
+                    <div class="coe-contratos-layout">
+                      <div id="coeContratosGrid" class="coe-contratos-lista" aria-live="polite"></div>
+
+                      <aside class="coe-contratos-destaques" aria-labelledby="titulo-contratos-destaques">
+                        <div>
+                          <span class="coe-destaques-label">Acompanhamento prioritário</span>
+                          <h3 id="titulo-contratos-destaques">Contratos em andamento</h3>
+                          <p>Frentes que exigem acompanhamento executivo no período.</p>
+                        </div>
+
+                        <div class="coe-destaques-progresso" aria-label="2 de 9 contratos em andamento">
+                          <span id="coeDestaquesProgresso"></span>
+                        </div>
+
+                        <div id="coeContratosDestaques" class="coe-destaques-lista"></div>
+
+                        <div class="coe-destaques-total">
+                          <strong id="coeQtdDestaques">2</strong>
+                          <span>frentes em acompanhamento</span>
+                        </div>
+                      </aside>
+                    </div>
+
+                    <footer class="coe-contratos-rodape">
+                      <i class="bx bx-info-circle"></i>
+                      Datas ainda não confirmadas permanecem identificadas como “A confirmar”.
+                    </footer>
+                  </div>
+                </section>
+
+                <div class="row g-4 coe-cards-secundarios">
+                  <section class="col-xl-3 col-md-6" aria-labelledby="titulo-workshops-capacitacao">
+                    <article class="card shadow-sm border-0 coe-workshop-card h-100">
+                      <div class="card-body">
+                        <header class="coe-workshop-header">
+                          <div>
+                            <span class="coe-card-kicker">Conhecimento e evolução</span>
+                            <h2 id="titulo-workshops-capacitacao">Workshops e Capacitação</h2>
+                          </div>
+                          <span class="coe-workshop-icone" aria-hidden="true">
+                            <i class="bx bx-chalkboard"></i>
+                          </span>
+                        </header>
+
+                        <div class="coe-workshop-destaque">
+                          <span class="coe-workshop-status">
+                            <i class="bx bx-check-circle"></i> Workshop realizado
+                          </span>
+                          <h3>Workshop POWER/AIX</h3>
+                          <p class="coe-workshop-tema">Procedimentos Operacionais e Resposta a Incidentes</p>
+                          <p class="coe-workshop-descricao">
+                            Conteúdo direcionado à padronização dos procedimentos operacionais e à resposta a
+                            incidentes nos ambientes POWER/AIX.
+                          </p>
+                          <footer class="coe-workshop-data">
+                            <i class="bx bx-calendar-check"></i>
+                            <div><span>Data de conclusão</span><strong>14/08/2026</strong></div>
+                          </footer>
+                        </div>
+                      </div>
+                    </article>
+                  </section>
+
+                  <section class="col-xl-3 col-md-6" aria-labelledby="titulo-entregas-relevantes">
+                    <article class="card shadow-sm border-0 coe-workshop-card coe-entrega-card h-100">
+                      <div class="card-body">
+                        <header class="coe-workshop-header">
+                          <div>
+                            <span class="coe-card-kicker">Monitoramento e observabilidade</span>
+                            <h2 id="titulo-entregas-relevantes">Entregas Relevantes</h2>
+                          </div>
+                          <span class="coe-workshop-icone" aria-hidden="true">
+                            <i class="bx bx-line-chart"></i>
+                          </span>
+                        </header>
+
+                        <div class="coe-workshop-destaque">
+                          <span class="coe-workshop-status">
+                            <i class="bx bx-check-circle"></i> Entrega concluída
+                          </span>
+                          <h3>Monitoramento — SCOM</h3>
+                          <p class="coe-workshop-tema">System Center Operations Manager</p>
+                          <p class="coe-workshop-descricao">
+                            Plataforma Microsoft implantada para ampliar a visibilidade da infraestrutura e apoiar
+                            o acompanhamento de desempenho e disponibilidade dos serviços críticos.
+                          </p>
+                          <footer class="coe-workshop-data">
+                            <i class="bx bx-calendar-check"></i>
+                            <div><span>Competência da entrega</span><strong>Agosto/2026</strong></div>
+                          </footer>
+                        </div>
+                      </div>
+                    </article>
+                  </section>
+
+                  <section class="col-xl-6" aria-labelledby="titulo-pocs">
+                    <article class="card shadow-sm border-0 coe-pocs-card h-100">
+                      <div class="card-body">
+                        <header class="coe-pocs-header">
+                          <div>
+                            <span class="coe-card-kicker">Inovação e validação técnica</span>
+                            <h2 id="titulo-pocs">POCs — Provas de Conceito</h2>
+                            <p>Acompanhamento executivo das iniciativas em avaliação.</p>
+                          </div>
+                          <span class="coe-pocs-icone" aria-hidden="true"><i class="bx bx-bulb"></i></span>
+                        </header>
+
+                        <div class="coe-pocs-tabela-wrap">
+                          <table class="coe-pocs-tabela">
+                            <caption class="visually-hidden">Status atual das provas de conceito</caption>
+                            <thead>
+                              <tr>
+                                <th scope="col">POC</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Observações</th>
+                                <th scope="col">Previsão de entrega</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><strong>Pacemaker</strong></td>
+                                <td><span class="coe-poc-status poc-andamento"><i></i>Em andamento</span></td>
+                                <td>Teste de resiliência e performance.</td>
+                                <td><span class="coe-poc-previsao previsao-confirmada">Nov/2026</span></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Cybele</strong></td>
+                                <td><span class="coe-poc-status poc-pausa"><i></i>Em pausa</span></td>
+                                <td>Aguardando arquitetura e segurança para liberação do 1º entorno.</td>
+                                <td><span class="coe-poc-previsao">A preencher</span></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Horizon</strong></td>
+                                <td><span class="coe-poc-status poc-pausa"><i></i>Em pausa</span></td>
+                                <td>Aguardando arquitetura e segurança para liberação do 1º entorno.</td>
+                                <td><span class="coe-poc-previsao">A preencher</span></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Palo Alto</strong></td>
+                                <td><span class="coe-poc-status poc-encerrada"><i></i>Encerrada</span></td>
+                                <td>A ferramenta não atende aos requisitos do CITRIX para o ambiente Vivo.</td>
+                                <td><span class="coe-poc-previsao previsao-cancelada">Cancelada</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </article>
+                  </section>
+                </div>
+
+                <section class="card shadow-sm border-0 coe-automacoes-card" aria-labelledby="titulo-automacoes">
+                  <div class="card-body">
+                    <header class="coe-automacoes-header">
+                      <div>
+                        <span class="coe-card-kicker">Eficiência e transformação operacional</span>
+                        <h2 id="titulo-automacoes">Automações</h2>
+                        <p>Visão consolidada das iniciativas de automação para criação de VMs e integração de plataformas.</p>
+                      </div>
+                      <span class="coe-automacoes-atualizacao">
+                        <i class="bx bx-refresh"></i> Atualização semanal · 14/08/2026
+                      </span>
+                    </header>
+
+                    <div class="coe-automacoes-layout">
+                      <section class="coe-automacoes-evolucao" aria-labelledby="titulo-evolucao-automacoes">
+                        <div class="coe-automacoes-subtitulo">
+                          <span class="coe-automacoes-icone"><i class="bx bx-cog"></i></span>
+                          <div><small>Evolução acumulada</small><h3 id="titulo-evolucao-automacoes">Publicações</h3></div>
+                        </div>
+
+                        <div class="coe-automacoes-kpis">
+                          <div><span>Maio</span><strong>14</strong><small>publicadas</small></div>
+                          <div class="kpi-destaque"><span>Junho</span><strong>17</strong><small>publicadas</small></div>
+                        </div>
+
+                        <div class="coe-automacoes-variacao">
+                          <span><i class="bx bx-trending-up"></i> +3 publicações</span>
+                          <small>Evolução entre maio e junho</small>
+                        </div>
+
+                        <div class="coe-automacoes-proxima">
+                          <i class="bx bx-calendar-event"></i>
+                          <div><span>Próxima janela</span><strong>Novas automações previstas para agosto</strong></div>
+                        </div>
+                      </section>
+
+                      <section class="coe-automacoes-entregas" aria-labelledby="titulo-automacoes-entregues">
+                        <div class="coe-automacoes-secao-header">
+                          <div><small>Registro semanal</small><h3 id="titulo-automacoes-entregues">Automações entregues</h3></div>
+                          <span>A atualizar</span>
+                        </div>
+
+                        <div class="coe-automacoes-tabela-wrap">
+                          <table class="coe-automacoes-tabela">
+                            <caption class="visually-hidden">Registro semanal das automações entregues</caption>
+                            <thead>
+                              <tr>
+                                <th scope="col">Automação</th>
+                                <th scope="col">Área</th>
+                                <th scope="col">Ganho obtido</th>
+                                <th scope="col">Data da entrega</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo campo-data">A preencher</span></td>
+                              </tr>
+                              <tr>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo campo-data">A preencher</span></td>
+                              </tr>
+                              <tr>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo">A preencher</span></td>
+                                <td><span class="coe-automacao-campo campo-data">A preencher</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <p class="coe-automacoes-nota">
+                          <i class="bx bx-info-circle"></i>
+                          Espaço preparado para registrar as entregas concluídas em cada atualização semanal.
+                        </p>
+                      </section>
+
+                      <aside class="coe-automacoes-squad" aria-labelledby="titulo-squad-automacoes">
+                        <div class="coe-automacoes-secao-header">
+                          <div><small>Atuação integrada</small><h3 id="titulo-squad-automacoes">Squad de Automações</h3></div>
+                        </div>
+
+                        <ul class="coe-automacoes-squad-lista">
+                          <li><i class="bx bx-group"></i><span><strong>Alinhamentos semanais</strong><small>Evolução contínua das iniciativas.</small></span></li>
+                          <li><i class="bx bx-sitemap"></i><span><strong>Atuação em três áreas</strong><small>COE, Operações e Projetos.</small></span></li>
+                          <li><i class="bx bx-layer"></i><span><strong>Jornada integrada</strong><small>VMs e integração de plataformas.</small></span></li>
+                        </ul>
+
+                        <div class="coe-automacoes-ganhos">
+                          <span>Ganhos esperados</span>
+                          <div>
+                            <small>Eficiência</small><small>Confiabilidade</small>
+                            <small>Agilidade</small><small>Padronização</small>
+                          </div>
+                        </div>
+                      </aside>
+                    </div>
+                  </div>
+                </section>
+
+                <div class="row g-4 coe-obsolescencia-linha">
+                  <section class="col-xl-9" aria-labelledby="titulo-obsolescencia">
+                    <article class="card shadow-sm border-0 coe-obsolescencia-card h-100">
+                      <div class="card-body">
+                        <header class="coe-obsolescencia-header">
+                          <div>
+                            <span class="coe-card-kicker">Ciclo de vida tecnológico</span>
+                            <h2 id="titulo-obsolescencia">Obsolescência</h2>
+                            <p>Novo estudo em andamento para consolidar riscos, prioridades e iniciativas de modernização.</p>
+                          </div>
+                          <div class="coe-obsolescencia-meta">
+                            <span class="coe-obsolescencia-status"><i class="bx bx-loader-circle"></i> Em andamento</span>
+                            <span class="coe-obsolescencia-previsao">
+                              <i class="bx bx-calendar-check"></i>
+                              <span>Previsão informada</span><strong>Out/2025</strong>
+                            </span>
+                          </div>
+                        </header>
+
+                        <div class="coe-obsolescencia-indicadores" aria-label="Indicadores futuros do estudo de obsolescência">
+                          <div>
+                            <span class="coe-obsolescencia-indicador-icone"><i class="bx bx-server"></i></span>
+                            <div><small>Servidores físicos e virtuais</small><strong>Hardware em levantamento</strong></div>
+                          </div>
+                          <div>
+                            <span class="coe-obsolescencia-indicador-icone"><i class="bx bx-chip"></i></span>
+                            <div><small>Sistemas operacionais</small><strong>Obsolescência de S.O. em levantamento</strong></div>
+                          </div>
+                          <div>
+                            <span class="coe-obsolescencia-indicador-icone"><i class="bx bx-grid-alt"></i></span>
+                            <div><small>Ferramentas e softwares</small><strong>Exchange · AD · Citrix · demais plataformas</strong></div>
+                          </div>
+                          <div>
+                            <span class="coe-obsolescencia-indicador-icone"><i class="bx bx-target-lock"></i></span>
+                            <div><small>Critérios de avaliação</small><strong>Riscos, criticidade e impacto no negócio</strong></div>
+                          </div>
+                        </div>
+
+                        <div class="coe-obsolescencia-jornada">
+                          <div class="etapa-concluida">
+                            <span><i class="bx bx-data"></i></span>
+                            <strong>Extração da CMDB</strong>
+                            <small>Concluído</small>
+                          </div>
+                          <div class="etapa-concluida">
+                            <span><i class="bx bx-bar-chart-square"></i></span>
+                            <strong>Dashboard Power BI</strong>
+                            <small>Concluído</small>
+                          </div>
+                          <div class="etapa-andamento">
+                            <span><i class="bx bx-pulse"></i></span>
+                            <strong>Análise e avaliação</strong>
+                            <small>Em andamento</small>
+                          </div>
+                          <div class="etapa-proxima">
+                            <span><i class="bx bx-shield-quarter"></i></span>
+                            <strong>Priorização de riscos</strong>
+                            <small>Próximo passo</small>
+                          </div>
+                          <div class="etapa-preparacao">
+                            <span><i class="bx bx-list-check"></i></span>
+                            <strong>Insights e plano de ação</strong>
+                            <small>Em preparação</small>
+                          </div>
+                        </div>
+
+                        <footer class="coe-obsolescencia-rodape">
+                          <i class="bx bx-info-circle"></i>
+                          Os indicadores quantitativos serão incorporados após a consolidação do novo estudo.
+                        </footer>
+                      </div>
+                    </article>
+                  </section>
+
+                  <section class="col-xl-3" aria-labelledby="titulo-entregas-obsolescencia">
+                    <article class="card shadow-sm border-0 coe-entregas-obsolescencia-card h-100">
+                      <div class="card-body">
+                        <header class="coe-entregas-obsolescencia-header">
+                          <div>
+                            <span class="coe-card-kicker">Modernização tecnológica</span>
+                            <h2 id="titulo-entregas-obsolescencia">Entregas de Obsolescência</h2>
+                          </div>
+                          <span class="coe-entregas-obsolescencia-icone"><i class="bx bx-refresh"></i></span>
+                        </header>
+
+                        <div class="coe-entregas-obsolescencia-lista">
+                          <article>
+                            <span class="coe-entrega-obs-icone"><i class="bx bx-time-five"></i></span>
+                            <div>
+                              <span class="coe-entrega-obs-status">Em andamento</span>
+                              <h3>Upgrade NTP — Ambiente Vivo</h3>
+                              <p>Atualização do sistema operacional de três servidores NTP para Oracle Linux 9.7, fortalecendo suporte, segurança e continuidade.</p>
+                              <small><i class="bx bx-calendar"></i> Agosto/2026</small>
+                            </div>
+                          </article>
+
+                          <article>
+                            <span class="coe-entrega-obs-icone"><i class="bx bx-network-chart"></i></span>
+                            <div>
+                              <span class="coe-entrega-obs-status">Em andamento</span>
+                              <h3>Atualização VM de Redes</h3>
+                              <p>Migração do sistema operacional RHEL 6 para Oracle Linux 9.7, reduzindo exposição à obsolescência e ampliando a sustentabilidade do ambiente.</p>
+                              <small><i class="bx bx-calendar"></i> Agosto/2026</small>
+                            </div>
+                          </article>
+                        </div>
+                      </div>
+                    </article>
+                  </section>
+                </div>
+              </main>
+
+            </div>
+          </div>
+          <!-- / Content -->
+
+          <!-- Footer -->
+          <footer class="content-footer footer bg-footer-theme">
+            <div class="container-xxl">
+              <div
+                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  · Engenharia de Infraestrutura e Cloud
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!-- / Footer -->
+
+          <div class="content-backdrop fade"></div>
+        </div>
+        <!-- Content wrapper -->
+      </div>
+      <!-- / Layout page -->
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+  </div>
+
+
+  <!-- Core JS -->
+
+  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+
+  <script src="../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../assets/vendor/js/bootstrap.js"></script>
+
+  <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+  <script src="../assets/vendor/js/menu.js"></script>
+
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+  <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+  <!-- Main JS -->
+
+  <script src="../assets/js/main.js"></script>
+
+  <script src="../assets/js/configuracoes-dashboard.js?v=20260814-2"></script>
+
+  <!-- Gráficos específicos do dashboard COE -->
+  <script src="../assets/js/dashboard-coe.js?v=20260814-3"></script>
+
+</body>
+
+</html>
