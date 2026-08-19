@@ -29,7 +29,7 @@
 
   <link rel="stylesheet" href="../assets/vendor/css/core.css" />
   <link rel="stylesheet" href="../assets/css/demo.css" />
-  <link rel="stylesheet" href="../assets/css/vivo.css" />
+  <link rel="stylesheet" href="../assets/css/vivo.css?v=20260818-1" />
 
   <!-- Vendors CSS -->
 
@@ -149,6 +149,10 @@
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
+              <aside class="nota-editorial" id="notaEditorial" aria-labelledby="notaEditorialTitulo" hidden>
+                <div class="nota-editorial-icone"><i class="bx bx-message-square-detail"></i></div>
+                <div class="nota-editorial-conteudo"><span>Nota editorial</span><h2 id="notaEditorialTitulo"></h2><p id="notaEditorialTexto"></p><small id="notaEditorialAssinatura"></small></div>
+              </aside>
               <!-- KPI Dashboard -->
               <div class="kpi-dashboard">
 
@@ -425,7 +429,7 @@
                         <p class="text-muted mb-0">Acompanhamento diário dos principais indicadores</p>
                       </div>
                       <div class="evolucao-acoes">
-                        <div class="evolucao-periodo"><i class="bx bx-calendar"></i>10 jul — 07 ago 2026</div>
+                        <div class="evolucao-periodo" id="evolucaoPeriodo"><i class="bx bx-calendar"></i>10 jul — 07 ago 2026</div>
                         <button type="button" id="alternarTabelaEvolucao" class="btn-tabela-evolucao"
                           aria-expanded="false" aria-controls="tabelaEvolucaoSemanal">
                           <i class="bx bx-table"></i><span>Ver dados</span>
@@ -453,20 +457,20 @@
                           <div class="resumo-periodo-titulo">Resumo do período</div>
                           <div class="metrica-destaque">
                             <span>Pico operacional</span>
-                            <strong>435</strong>
-                            <small>Alertas PRD · 29/07</small>
+                            <strong id="evolucaoPicoValor">435</strong>
+                            <small id="evolucaoPicoDetalhe">Alertas PRD · 29/07</small>
                           </div>
                           <div class="metrica-linha">
                             <span>Alertas PRD</span>
-                            <strong class="tendencia-positiva">−64,4%</strong>
+                            <strong class="tendencia-positiva" id="evolucaoVariacaoPrd">−64,4%</strong>
                           </div>
                           <div class="metrica-linha">
                             <span>Incidentes</span>
-                            <strong class="tendencia-alerta">+73,3%</strong>
+                            <strong class="tendencia-alerta" id="evolucaoVariacaoIncidentes">+73,3%</strong>
                           </div>
                           <div class="metrica-linha">
                             <span>Último registro</span>
-                            <strong>07/08</strong>
+                            <strong id="evolucaoUltimoRegistro">07/08</strong>
                           </div>
                           <p class="resumo-nota mb-0">Comparação entre o primeiro e o último registro do período.</p>
                         </aside>
@@ -484,7 +488,7 @@
                       <div class="table-responsive">
                         <table class="evolucao-tabela">
                           <thead>
-                            <tr>
+                            <tr id="evolucaoTabelaCabecalho">
                               <th>Indicador</th>
                               <th>10/07<small>SEX</small></th><th>13/07<small>SEG</small></th>
                               <th>29/07<small>QUA</small></th><th>30/07<small>QUI</small></th>
@@ -494,7 +498,7 @@
                               <th>06/08<small>QUI</small></th><th>07/08<small>SEX</small></th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="evolucaoTabelaCorpo">
                             <tr><th><i style="--cor:#e91e63"></i>Incidentes</th><td>15</td><td>18</td><td>30</td><td>31</td><td>32</td><td>31</td><td>30</td><td>29</td><td>24</td><td>18</td><td>23</td><td>26</td></tr>
                             <tr><th><i style="--cor:#ec4899"></i>RITMs</th><td>5</td><td>6</td><td>6</td><td>7</td><td>8</td><td>7</td><td>5</td><td>4</td><td>5</td><td>6</td><td>6</td><td>7</td></tr>
                             <tr><th><i style="--cor:#2563eb"></i>PRBs</th><td>16</td><td>16</td><td>7</td><td>7</td><td>6</td><td>6</td><td>5</td><td>5</td><td>4</td><td>3</td><td>3</td><td>1</td></tr>
@@ -524,7 +528,7 @@
                           <h2 id="titulo-fornecedores" class="fw-bold mb-0">Gestão de Fornecedores</h2>
                         </div>
                       </div>
-                      <span class="fornecedores-atualizacao">
+                      <span class="fornecedores-atualizacao" id="fornecedoresAtualizacao">
                         <i class="bx bx-refresh"></i> Atualizado em 07/08/2026
                       </span>
                     </div>
@@ -532,7 +536,7 @@
                     <div class="row g-4">
                       <div class="col-xl-8">
                         <div class="fornecedores-lista">
-                          <article class="fornecedor-item fornecedor-agendado">
+                          <article class="fornecedor-item fornecedor-agendado" data-fornecedor="atos">
                             <div class="fornecedor-marca fornecedor-marca-logo">
                               <img src="../assets/img/icons/brands/contratos/atos.png" alt="Atos" />
                             </div>
@@ -547,7 +551,7 @@
                             <span class="fornecedor-status status-confirmado">Confirmado</span>
                           </article>
 
-                          <article class="fornecedor-item fornecedor-agendado">
+                          <article class="fornecedor-item fornecedor-agendado" data-fornecedor="america">
                             <a class="fornecedor-marca fornecedor-marca-logo" href="https://americatecnologia.com.br/"
                               target="_blank" rel="noopener noreferrer" aria-label="Site da América Tecnologia">
                               <img src="../assets/img/icons/brands/contratos/america.png" alt="América Tecnologia" />
@@ -563,13 +567,13 @@
                             <span class="fornecedor-status status-confirmado">Confirmado</span>
                           </article>
 
-                          <article class="fornecedor-item">
+                          <article class="fornecedor-item" data-fornecedor="microsoft">
                             <div class="fornecedor-marca fornecedor-marca-logo">
                               <img src="../assets/img/icons/brands/contratos/microsoft.png" alt="Microsoft" />
                             </div>
                             <div class="fornecedor-identidade">
                               <strong>Microsoft</strong>
-                              <span>Cloud e produtividade</span>
+                              <span>Serviços e suporte</span>
                             </div>
                             <div class="fornecedor-agenda agenda-pendente">
                               <i class="bx bx-time-five"></i>
@@ -578,7 +582,7 @@
                             <span class="fornecedor-status status-pendente">Pendente</span>
                           </article>
 
-                          <article class="fornecedor-item">
+                          <article class="fornecedor-item" data-fornecedor="hp">
                             <div class="fornecedor-marca fornecedor-marca-logo">
                               <img src="../assets/img/icons/brands/contratos/hp.png" alt="HP" />
                             </div>
@@ -593,7 +597,7 @@
                             <span class="fornecedor-status status-pendente">Pendente</span>
                           </article>
 
-                          <article class="fornecedor-item">
+                          <article class="fornecedor-item" data-fornecedor="huawei">
                             <div class="fornecedor-marca fornecedor-marca-logo">
                               <img src="../assets/img/icons/brands/contratos/huawei.png" alt="Huawei" />
                             </div>
@@ -608,7 +612,7 @@
                             <span class="fornecedor-status status-pendente">Pendente</span>
                           </article>
 
-                          <article class="fornecedor-item">
+                          <article class="fornecedor-item" data-fornecedor="dell">
                             <div class="fornecedor-marca fornecedor-marca-logo">
                               <img src="../assets/img/icons/brands/contratos/dell.png" alt="Dell Technologies" />
                             </div>
@@ -629,25 +633,28 @@
                         <aside class="fornecedores-resumo h-100">
                           <div>
                             <span class="resumo-fornecedor-label">Visão da agenda</span>
-                            <h3 class="mb-1">2 de 6 reuniões</h3>
-                            <p class="text-muted mb-4">33% da rodada mensal confirmada</p>
+                            <h3 class="mb-1" id="fornecedoresResumoTitulo">2 de 6 reuniões</h3>
+                            <p class="text-muted mb-4" id="fornecedoresResumoPercentual">33% da rodada mensal confirmada</p>
                           </div>
                           <div class="fornecedores-progresso" aria-label="33% das reuniões confirmadas">
-                            <span style="width:33.33%"></span>
+                            <span id="fornecedoresProgresso" style="width:33.33%"></span>
                           </div>
                           <div class="fornecedores-contadores">
-                            <div><strong>2</strong><span>Confirmadas</span></div>
-                            <div><strong>4</strong><span>Pendentes</span></div>
-                            <div><strong>6</strong><span>Parceiros</span></div>
+                            <div><strong id="fornecedoresConfirmadas">2</strong><span>Confirmadas</span></div>
+                            <div><strong id="fornecedoresPendentes">4</strong><span>Pendentes</span></div>
+                            <div><strong id="fornecedoresCanceladas">0</strong><span>Canceladas</span></div>
+                            <div><strong id="fornecedoresTotal">6</strong><span>Parceiros</span></div>
                           </div>
-                          <div class="proxima-reuniao">
-                            <span>Próxima reunião</span>
-                            <strong>Bull (Atos)</strong>
-                            <small><i class="bx bx-calendar"></i> 10 ago · 10:00</small>
+                          <div class="proxima-reuniao" id="proximasReunioes">
+                            <span>Próximas reuniões</span>
+                            <div class="proximas-reunioes-lista">
+                              <div class="proxima-reuniao-item"><strong>Bull (Atos)</strong><small><i class="bx bx-calendar"></i> 10 ago · 10:00</small></div>
+                              <div class="proxima-reuniao-item"><strong>América Tecnologia</strong><small><i class="bx bx-calendar"></i> 10 ago · 11:30</small></div>
+                            </div>
                           </div>
-                          <button type="button" class="btn-fornecedores">
+                          <a href="configuracoes.html?tab=operacoes#config-fornecedores" class="btn-fornecedores">
                             <i class="bx bx-calendar-plus"></i> Organizar agenda
-                          </button>
+                          </a>
                         </aside>
                       </div>
                     </div>
@@ -670,12 +677,12 @@
                         </div>
                       </div>
                       <div class="iniciativas-resumo-topo">
-                        <span><strong>4</strong> iniciativas</span>
-                        <span><strong>1</strong> concluída</span>
+                        <span><strong id="iniciativasTotal">4</strong> iniciativas</span>
+                        <span><strong id="iniciativasConcluidas">1</strong> concluída</span>
                       </div>
                     </div>
 
-                    <div class="iniciativas-grid">
+                    <div class="iniciativas-grid" id="iniciativasGrid">
                       <article class="iniciativa-item iniciativa-andamento">
                         <div class="iniciativa-icone"><i class="bx bx-cog"></i></div>
                         <div class="iniciativa-conteudo">
@@ -757,8 +764,8 @@
                           <div class="entrega-icone"><i class="bx bx-transfer-alt"></i></div>
                           <div class="entrega-conteudo">
                             <span>CHGs implementadas</span>
-                            <strong>1.921</strong>
-                            <small>Realizadas em 2026</small>
+                            <strong id="mudancasTotal">1.921</strong>
+                            <small id="mudancasAno">Realizadas em 2026</small>
                           </div>
                           <span class="entrega-selo">Mudanças</span>
                         </article>
@@ -767,8 +774,8 @@
                           <div class="entrega-icone entrega-icone-secundario"><i class="bx bx-task"></i></div>
                           <div class="entrega-conteudo">
                             <span>Tarefas executadas</span>
-                            <strong>2.837</strong>
-                            <small>Concluídas em 2026</small>
+                            <strong id="tarefasTotal">2.837</strong>
+                            <small id="tarefasAno">Concluídas em 2026</small>
                           </div>
                           <span class="entrega-selo">Tarefas</span>
                         </article>
@@ -777,11 +784,11 @@
                       <div class="entregas-total">
                         <div>
                           <span>Volume total entregue</span>
-                          <strong>4.758</strong>
+                          <strong id="entregasVolumeTotal">4.758</strong>
                         </div>
                         <div class="entregas-composicao">
-                          <span style="width:40.37%" title="40,4% mudanças"></span>
-                          <span style="width:59.63%" title="59,6% tarefas"></span>
+                          <span id="entregasComposicaoMudancas" style="width:40.37%" title="40,4% mudanças"></span>
+                          <span id="entregasComposicaoTarefas" style="width:59.63%" title="59,6% tarefas"></span>
                         </div>
                       </div>
                     </div>
@@ -796,9 +803,10 @@
                           <span class="executivo-eyebrow">Atenção executiva</span>
                           <h2 id="titulo-informacoes-relevantes" class="fw-bold mb-0">Informações Relevantes</h2>
                         </div>
-                        <span class="severidade-badge"><i class="bx bx-error"></i> Incidente relevante</span>
+                        <span class="severidade-badge" id="relevantesContador"><i class="bx bx-bell"></i> 1 destaque</span>
                       </div>
 
+                      <div class="informacoes-relevantes-lista" id="informacoesRelevantesLista">
                       <article class="incidente-relevante">
                         <div class="incidente-alerta-icone"><i class="bx bx-error"></i></div>
                         <div class="incidente-detalhes">
@@ -820,6 +828,7 @@
                           </div>
                         </div>
                       </article>
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -880,10 +889,10 @@
 
   <script src="../assets/js/main.js"></script>
 
-  <script src="../assets/js/configuracoes-dashboard.js?v=20260814-2"></script>
+  <script src="../assets/js/configuracoes-dashboard.js?v=20260818-13"></script>
 
   <!-- dashboard-operacoes JS -->
-  <script src="../assets/js/dashboard-operacoes.js?v=20260814-4"></script>
+  <script src="../assets/js/dashboard-operacoes.js?v=20260818-11"></script>
 
 </body>
 

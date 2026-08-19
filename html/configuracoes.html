@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../assets/vendor/fonts/iconify-icons.css" />
   <link rel="stylesheet" href="../assets/vendor/css/core.css" />
   <link rel="stylesheet" href="../assets/css/demo.css" />
-  <link rel="stylesheet" href="../assets/css/vivo.css" />
+  <link rel="stylesheet" href="../assets/css/vivo.css?v=20260818-1" />
   <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <script src="../assets/vendor/js/helpers.js"></script>
   <script src="../assets/js/config.js"></script>
@@ -180,11 +180,182 @@
                             <span class="config-feedback config-feedback-disponibilidade" id="feedbackDisponibilidade"></span>
                           </div>
                         </div>
-                        <div class="config-form-secao">
-                          <div class="config-form-titulo"><span><i class="bx bx-grid-alt"></i></span><div><h3>Gestão operacional</h3><p>Fornecedores, iniciativas, mudanças e informações relevantes.</p></div></div>
-                          <div class="config-campos config-campos-texto">
-                            <label>Destaques do período<textarea class="form-control" name="destaques" rows="4" placeholder="Registre os principais destaques executivos..."></textarea></label>
-                            <label>Observações para publicação<textarea class="form-control" name="observacoes" rows="4" placeholder="Informações de apoio ou pendências..."></textarea></label>
+                        <div class="config-form-secao config-form-secao-evolucao">
+                          <div class="config-form-titulo"><span><i class="bx bx-calendar-week"></i></span><div><h3>Evolução Semanal da Operação</h3><p>Cada registro diário atualiza o gráfico, o resumo executivo e a tabela detalhada.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-evolucao">
+                              <label>Data<input class="form-control" type="date" name="evolucao_data" id="evolucaoData" value="2026-08-14" /></label>
+                              <label>Incidentes<input class="form-control" type="number" min="0" id="evolucaoIncidentes" /></label>
+                              <label>RITMs<input class="form-control" type="number" min="0" id="evolucaoRitms" /></label>
+                              <label>PRBs<input class="form-control" type="number" min="0" id="evolucaoPrbs" /></label>
+                              <label>PTASK<input class="form-control" type="number" min="0" id="evolucaoPtask" /></label>
+                              <label>Alertas QA<input class="form-control" type="number" min="0" id="evolucaoAlertasQa" /></label>
+                              <label>Alertas PRD<input class="form-control" type="number" min="0" id="evolucaoAlertasPrd" /></label>
+                              <label>INC HW<input class="form-control" type="number" min="0" id="evolucaoIncHw" /></label>
+                              <label>MV América<input class="form-control" type="number" min="0" id="evolucaoAmerica" /></label>
+                            </div>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> A data definirá automaticamente o dia da semana e o período do card.</small>
+                              <button class="config-btn-adicionar" type="button" id="adicionarEvolucaoSemanal"><i class="bx bx-plus"></i> Adicionar registro diário</button>
+                            </div>
+                            <div class="config-historico" id="historicoEvolucaoSemanal" aria-live="polite"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackEvolucaoSemanal"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-fornecedores" id="config-fornecedores">
+                          <div class="config-form-titulo"><span><i class="bx bx-calendar-check"></i></span><div><h3>Gestão de Fornecedores</h3><p>Atualize a agenda vigente de cada parceiro sem duplicar fornecedores no card.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-fornecedores">
+                              <label>Fornecedor
+                                <select class="form-select" id="agendaFornecedor">
+                                  <option value="atos">Bull (Atos)</option><option value="america">América Tecnologia</option>
+                                  <option value="microsoft">Microsoft</option><option value="hp">HP</option>
+                                  <option value="huawei">Huawei</option><option value="dell">Dell</option>
+                                </select>
+                              </label>
+                              <label>Situação
+                                <select class="form-select" id="agendaStatus">
+                                  <option value="confirmado">Confirmada</option><option value="pendente">Pendente</option><option value="cancelado">Cancelada</option>
+                                </select>
+                              </label>
+                              <label>Data<input class="form-control" type="date" id="agendaData" /></label>
+                              <label>Horário<input class="form-control" type="time" id="agendaHora" /></label>
+                              <label>Observação<input class="form-control" id="agendaObservacao" maxlength="100" placeholder="Ex.: pauta de capacidade" /></label>
+                            </div>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> Reuniões confirmadas exigem data e horário; pendentes podem ficar sem data.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarAgendaFornecedor"><i class="bx bx-save"></i> Atualizar agenda</button>
+                            </div>
+                            <div class="config-agenda-lista" id="resumoAgendaFornecedores" aria-live="polite"></div>
+                            <div class="config-agenda-historico-cabecalho">
+                              <div><strong>Histórico de atualizações</strong><small>Datas, situações e notas registradas</small></div>
+                              <button type="button" class="config-btn-historico" id="alternarHistoricoFornecedores" aria-expanded="false" aria-controls="historicoAgendaFornecedores"><i class="bx bx-history"></i><span>Consultar histórico</span></button>
+                            </div>
+                            <div class="config-agenda-historico" id="historicoAgendaFornecedores" aria-live="polite" aria-hidden="true"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackAgendaFornecedor"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-iniciativas" id="config-iniciativas">
+                          <div class="config-form-titulo"><span><i class="bx bx-bulb"></i></span><div><h3>Iniciativas</h3><p>Cadastre novas iniciativas ou atualize situação, progresso e data de término.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-iniciativas">
+                              <label>Iniciativa
+                                <select class="form-select" id="iniciativaSelecionada">
+                                  <option value="gaus">Automação GAUS</option><option value="chamado">Abertura de chamado</option>
+                                  <option value="ritm">Definição dos processos de RITM</option><option value="catalogo">Revisão do catálogo RITMs</option>
+                                  <option value="nova">+ Nova iniciativa</option>
+                                </select>
+                              </label>
+                              <label>Título<input class="form-control" id="iniciativaTitulo" maxlength="80" /></label>
+                              <label>Situação
+                                <select class="form-select" id="iniciativaStatus">
+                                  <option value="planejada">Planejada</option><option value="andamento">Em andamento</option>
+                                  <option value="pausada">Pausada</option><option value="concluida">Concluída</option>
+                                  <option value="arquivada">Arquivada</option>
+                                </select>
+                              </label>
+                              <label>Progresso (%)<input class="form-control" type="number" min="0" max="100" id="iniciativaProgresso" placeholder="Deixe vazio para progresso animado" /></label>
+                              <label>Data de término<input class="form-control" type="date" id="iniciativaTermino" /></label>
+                            </div>
+                            <div class="config-campos config-campos-iniciativas-texto">
+                              <label>Descrição executiva<textarea class="form-control" id="iniciativaDescricao" rows="2" maxlength="180"></textarea></label>
+                              <label>Detalhe do progresso<textarea class="form-control" id="iniciativaDetalhe" rows="2" maxlength="140" placeholder="Ex.: 2 de 4 processos concluídos"></textarea></label>
+                              <label>Observação interna<textarea class="form-control" id="iniciativaObservacao" rows="2" maxlength="180"></textarea></label>
+                            </div>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> Concluídas assumem 100%; arquivadas deixam de aparecer no card, mas permanecem no histórico.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarIniciativa"><i class="bx bx-save"></i> Salvar iniciativa</button>
+                            </div>
+                            <div class="config-agenda-lista" id="resumoIniciativas" aria-live="polite"></div>
+                            <div class="config-agenda-historico-cabecalho">
+                              <div><strong>Histórico de iniciativas</strong><small>Alterações de situação, progresso e término</small></div>
+                              <button type="button" class="config-btn-historico" id="alternarHistoricoIniciativas" aria-expanded="false" aria-controls="historicoIniciativas"><i class="bx bx-history"></i><span>Consultar histórico</span></button>
+                            </div>
+                            <div class="config-agenda-historico" id="historicoIniciativas" aria-live="polite" aria-hidden="true"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackIniciativa"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-entregas" id="config-mudancas-tarefas">
+                          <div class="config-form-titulo"><span><i class="bx bx-transfer-alt"></i></span><div><h3>Mudanças e Tarefas</h3><p>Atualize o volume anual de CHGs implementadas e tarefas executadas.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-entregas">
+                              <label>Ano de referência<input class="form-control" type="number" min="2026" max="2100" id="entregasAno" value="2026" /></label>
+                              <label>CHGs implementadas<input class="form-control" type="number" min="0" id="entregasMudancas" value="1921" /></label>
+                              <label>Tarefas executadas<input class="form-control" type="number" min="0" id="entregasTarefas" value="2837" /></label>
+                              <label>Observação executiva<input class="form-control" id="entregasObservacao" maxlength="120" placeholder="Opcional" /></label>
+                            </div>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> O volume total e a composição percentual serão recalculados automaticamente.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarMudancasTarefas"><i class="bx bx-save"></i> Atualizar entregas</button>
+                            </div>
+                            <div class="config-historico" id="resumoMudancasTarefas" aria-live="polite"></div>
+                            <div class="config-agenda-historico-cabecalho">
+                              <div><strong>Histórico de atualizações</strong><small>Volumes registrados por ano</small></div>
+                              <button type="button" class="config-btn-historico" id="alternarHistoricoMudancasTarefas" aria-expanded="false" aria-controls="historicoMudancasTarefas"><i class="bx bx-history"></i><span>Consultar histórico</span></button>
+                            </div>
+                            <div class="config-agenda-historico" id="historicoMudancasTarefas" aria-live="polite" aria-hidden="true"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackMudancasTarefas"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-relevantes" id="config-informacoes-relevantes">
+                          <div class="config-form-titulo"><span><i class="bx bx-bell"></i></span><div><h3>Atenção Executiva — Informações Relevantes</h3><p>Cadastre incidentes, atualizações e entregas e escolha quais devem aparecer no dashboard.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-relevantes">
+                              <label>Informação
+                                <select class="form-select" id="relevanteSelecionada"><option value="incidente_gedoc">Incidente GEDOC — INC4530241</option><option value="nova">+ Nova informação</option></select>
+                              </label>
+                              <label>Tipo
+                                <select class="form-select" id="relevanteTipo"><option value="incidente">Incidente relevante</option><option value="atualizacao">Atualização relevante</option><option value="entrega">Entrega relevante</option></select>
+                              </label>
+                              <label id="relevanteTituloLabel">Título<input class="form-control" id="relevanteTitulo" maxlength="80" /></label>
+                              <label id="relevanteReferenciaLabel">Número do incidente<input class="form-control" id="relevanteReferencia" maxlength="60" /></label>
+                              <label>Status
+                                <select class="form-select" id="relevanteStatus">
+                                  <option value="Em análise">Em análise</option>
+                                  <option value="Em acompanhamento">Em acompanhamento</option>
+                                  <option value="Redirecionado">Redirecionado</option>
+                                  <option value="Solucionado">Solucionado</option>
+                                  <option value="Planejada">Planejada</option>
+                                  <option value="Em andamento">Em andamento</option>
+                                  <option value="Concluída">Concluída</option>
+                                  <option value="Entregue">Entregue</option>
+                                </select>
+                              </label>
+                              <label>Data de referência<input class="form-control" type="date" id="relevanteData" /></label>
+                            </div>
+                            <div class="config-campos config-campos-relevantes-texto">
+                              <label>Descrição executiva<textarea class="form-control" id="relevanteDescricao" rows="2" maxlength="240"></textarea></label>
+                              <label id="relevanteDetalheLabel">IC ou causa associada<textarea class="form-control" id="relevanteDetalhe" rows="2" maxlength="160"></textarea></label>
+                              <label>Ação, encaminhamento ou resultado<textarea class="form-control" id="relevanteAcao" rows="2" maxlength="180"></textarea></label>
+                            </div>
+                            <label class="config-check-publicacao"><input type="checkbox" id="relevanteVisivel" checked /><span><strong>Exibir no dashboard</strong><small>Desmarque para ocultar o item sem excluí-lo.</small></span></label>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> Uma atualização altera o item selecionado; “Nova informação” cria um novo destaque.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarInformacaoRelevante"><i class="bx bx-save"></i> Salvar informação</button>
+                            </div>
+                            <div class="config-agenda-lista" id="resumoInformacoesRelevantes" aria-live="polite"></div>
+                            <div class="config-agenda-historico-cabecalho">
+                              <div><strong>Histórico de informações</strong><small>Publicações, alterações e itens ocultos</small></div>
+                              <button type="button" class="config-btn-historico" id="alternarHistoricoRelevantes" aria-expanded="false" aria-controls="historicoInformacoesRelevantes"><i class="bx bx-history"></i><span>Consultar histórico</span></button>
+                            </div>
+                            <div class="config-agenda-historico" id="historicoInformacoesRelevantes" aria-live="polite" aria-hidden="true"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackInformacaoRelevante"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-editorial" id="config-nota-editorial">
+                          <div class="config-form-titulo"><span><i class="bx bx-message-square-detail"></i></span><div><h3>Nota editorial do boletim</h3><p>Mensagem executiva opcional exibida logo abaixo do cabeçalho do relatório.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-editorial">
+                              <label>Título da nota<input class="form-control" id="editorialTitulo" maxlength="80" placeholder="Ex.: Mensagem da liderança" /></label>
+                              <label>Assinatura opcional<input class="form-control" id="editorialAssinatura" maxlength="80" placeholder="Ex.: Gestão de Operações" /></label>
+                            </div>
+                            <label class="config-editorial-texto">Texto executivo<textarea class="form-control" id="editorialTexto" rows="3" maxlength="420" placeholder="Registre uma mensagem breve para contextualizar o período, os resultados ou as prioridades do boletim."></textarea></label>
+                            <label class="config-check-publicacao"><input type="checkbox" id="editorialVisivel" /><span><strong>Exibir no boletim</strong><small>Quando desmarcada, a nota permanece salva, mas não aparece no dashboard.</small></span></label>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> Use uma mensagem curta e executiva para não aumentar a extensão do relatório impresso.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarNotaEditorial"><i class="bx bx-save"></i> Salvar nota editorial</button>
+                            </div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackNotaEditorial"></span>
                           </div>
                         </div>
                         <div class="config-form-acoes"><span class="config-feedback" aria-live="polite"></span><button class="config-btn-salvar" type="submit"><i class="bx bx-save"></i> Salvar rascunho Operações</button></div>
@@ -207,6 +378,6 @@
   <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="../assets/vendor/js/menu.js"></script>
   <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/configuracoes-dashboard.js?v=20260814-2"></script>
+  <script src="../assets/js/configuracoes-dashboard.js?v=20260818-13"></script>
 </body>
 </html>
