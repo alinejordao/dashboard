@@ -29,7 +29,7 @@
 
   <link rel="stylesheet" href="../assets/vendor/css/core.css" />
   <link rel="stylesheet" href="../assets/css/demo.css" />
-  <link rel="stylesheet" href="../assets/css/vivo.css?v=20260818-1" />
+  <link rel="stylesheet" href="../assets/css/vivo.css?v=20260820-10" />
 
   <!-- Vendors CSS -->
 
@@ -164,21 +164,21 @@
                         <h2 id="titulo-area-coe">Evolução das migrações</h2>
                         <p>Acompanhamento acumulado das máquinas virtuais migradas e desativadas.</p>
                       </div>
-                      <span class="coe-periodo"><i class="bx bx-calendar"></i> 2025 — Ago/2026</span>
+                      <span class="coe-periodo" id="coeMigracoesPeriodo"><i class="bx bx-calendar"></i> 2025 — Ago/2026</span>
                     </header>
 
                     <div class="coe-burnup-resumo" aria-label="Resumo das migrações em agosto">
                       <div class="coe-resumo-item coe-resumo-destaque">
-                        <span>Atingido</span><strong>4.533</strong><small>VMs migradas</small>
+                        <span>Atingido</span><strong id="coeMigracoesAtingido">4.533</strong><small>VMs migradas</small>
                       </div>
                       <div class="coe-resumo-item">
-                        <span>Meta</span><strong>4.979</strong><small>Agosto</small>
+                        <span>Meta</span><strong id="coeMigracoesMeta">4.979</strong><small id="coeMigracoesMetaMes">Agosto</small>
                       </div>
                       <div class="coe-resumo-item">
-                        <span>Aderência</span><strong>91,0%</strong><small>da meta mensal</small>
+                        <span>Aderência</span><strong id="coeMigracoesAderencia">91,0%</strong><small>da meta mensal</small>
                       </div>
                       <div class="coe-resumo-item coe-resumo-gap">
-                        <span>Diferença</span><strong>−446</strong><small>VMs para a meta</small>
+                        <span>Diferença</span><strong id="coeMigracoesDiferenca">−446</strong><small id="coeMigracoesDiferencaLegenda">VMs para a meta</small>
                       </div>
                     </div>
 
@@ -198,7 +198,7 @@
                     </header>
 
                     <div class="coe-gauges-stack">
-                      <section class="coe-gauge-item" aria-label="Programa 25 por cento concluído">
+                      <section class="coe-gauge-item" id="coeGaugeProgramaItem" aria-label="Programa 25 por cento concluído">
                         <div id="coeGaugePrograma" class="coe-gauge-chart"></div>
                         <div class="coe-gauge-caption">
                           <span class="coe-gauge-icon coe-gauge-icon-roxo"><i class="bx bx-trophy"></i></span>
@@ -206,11 +206,11 @@
                         </div>
                       </section>
 
-                      <section class="coe-gauge-item" aria-label="Meta de 2026 atingida em 63 por cento">
+                      <section class="coe-gauge-item" id="coeGaugeMetaItem" aria-label="Meta de 2026 atingida em 76 por cento">
                         <div id="coeGaugeMeta" class="coe-gauge-chart"></div>
                         <div class="coe-gauge-caption">
                           <span class="coe-gauge-icon coe-gauge-icon-azul"><i class="bx bx-target-lock"></i></span>
-                          <div><strong>Meta 2026</strong><small>Atingida</small></div>
+                          <div><strong id="coeGaugeMetaTitulo">Meta 2026</strong><small>Atingida</small></div>
                         </div>
                       </section>
                     </div>
@@ -264,7 +264,7 @@
                 </section>
 
                 <div class="row g-4 coe-cards-secundarios">
-                  <section class="col-xl-3 col-md-6" aria-labelledby="titulo-workshops-capacitacao">
+                  <section class="col-xl-3 col-md-6" id="coeWorkshopsSecao" aria-labelledby="titulo-workshops-capacitacao">
                     <article class="card shadow-sm border-0 coe-workshop-card h-100">
                       <div class="card-body">
                         <header class="coe-workshop-header">
@@ -277,6 +277,7 @@
                           </span>
                         </header>
 
+                        <div class="coe-workshops-lista" id="coeWorkshopsLista">
                         <div class="coe-workshop-destaque">
                           <span class="coe-workshop-status">
                             <i class="bx bx-check-circle"></i> Workshop realizado
@@ -292,16 +293,17 @@
                             <div><span>Data de conclusão</span><strong>14/08/2026</strong></div>
                           </footer>
                         </div>
+                        </div>
                       </div>
                     </article>
                   </section>
 
-                  <section class="col-xl-3 col-md-6" aria-labelledby="titulo-entregas-relevantes">
+                  <section class="col-xl-3 col-md-6" id="coeEntregasRelevantesSecao" aria-labelledby="titulo-entregas-relevantes">
                     <article class="card shadow-sm border-0 coe-workshop-card coe-entrega-card h-100">
                       <div class="card-body">
                         <header class="coe-workshop-header">
                           <div>
-                            <span class="coe-card-kicker">Monitoramento e observabilidade</span>
+                            <span class="coe-card-kicker">Destaques e resultados</span>
                             <h2 id="titulo-entregas-relevantes">Entregas Relevantes</h2>
                           </div>
                           <span class="coe-workshop-icone" aria-hidden="true">
@@ -309,6 +311,7 @@
                           </span>
                         </header>
 
+                        <div class="coe-entregas-relevantes-lista" id="coeEntregasRelevantesLista">
                         <div class="coe-workshop-destaque">
                           <span class="coe-workshop-status">
                             <i class="bx bx-check-circle"></i> Entrega concluída
@@ -323,6 +326,7 @@
                             <i class="bx bx-calendar-check"></i>
                             <div><span>Competência da entrega</span><strong>Agosto/2026</strong></div>
                           </footer>
+                        </div>
                         </div>
                       </div>
                     </article>
@@ -351,7 +355,7 @@
                                 <th scope="col">Previsão de entrega</th>
                               </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="coePocsTabelaCorpo">
                               <tr>
                                 <td><strong>Pacemaker</strong></td>
                                 <td><span class="coe-poc-status poc-andamento"><i></i>Em andamento</span></td>
@@ -392,7 +396,7 @@
                         <h2 id="titulo-automacoes">Automações</h2>
                         <p>Visão consolidada das iniciativas de automação para criação de VMs e integração de plataformas.</p>
                       </div>
-                      <span class="coe-automacoes-atualizacao">
+                      <span class="coe-automacoes-atualizacao" id="coeAutomacoesAtualizacao">
                         <i class="bx bx-refresh"></i> Atualização semanal · 14/08/2026
                       </span>
                     </header>
@@ -404,26 +408,25 @@
                           <div><small>Evolução acumulada</small><h3 id="titulo-evolucao-automacoes">Publicações</h3></div>
                         </div>
 
-                        <div class="coe-automacoes-kpis">
+                        <div class="coe-automacoes-kpis" id="coeAutomacoesKpis">
                           <div><span>Maio</span><strong>14</strong><small>publicadas</small></div>
                           <div class="kpi-destaque"><span>Junho</span><strong>17</strong><small>publicadas</small></div>
                         </div>
 
                         <div class="coe-automacoes-variacao">
-                          <span><i class="bx bx-trending-up"></i> +3 publicações</span>
-                          <small>Evolução entre maio e junho</small>
+                          <span id="coeAutomacoesVariacao"><i class="bx bx-trending-up"></i> +3 publicações</span>
+                          <small id="coeAutomacoesVariacaoPeriodo">Evolução entre maio e junho</small>
                         </div>
 
                         <div class="coe-automacoes-proxima">
                           <i class="bx bx-calendar-event"></i>
-                          <div><span>Próxima janela</span><strong>Novas automações previstas para agosto</strong></div>
+                          <div><span>Próxima janela</span><strong id="coeAutomacoesProximaJanela">Novas automações previstas para agosto</strong></div>
                         </div>
                       </section>
 
                       <section class="coe-automacoes-entregas" aria-labelledby="titulo-automacoes-entregues">
                         <div class="coe-automacoes-secao-header">
                           <div><small>Registro semanal</small><h3 id="titulo-automacoes-entregues">Automações entregues</h3></div>
-                          <span>A atualizar</span>
                         </div>
 
                         <div class="coe-automacoes-tabela-wrap">
@@ -432,14 +435,12 @@
                             <thead>
                               <tr>
                                 <th scope="col">Automação</th>
-                                <th scope="col">Área</th>
                                 <th scope="col">Ganho obtido</th>
                                 <th scope="col">Data da entrega</th>
                               </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="coeAutomacoesTabelaCorpo">
                               <tr>
-                                <td><span class="coe-automacao-campo">A preencher</span></td>
                                 <td><span class="coe-automacao-campo">A preencher</span></td>
                                 <td><span class="coe-automacao-campo">A preencher</span></td>
                                 <td><span class="coe-automacao-campo campo-data">A preencher</span></td>
@@ -447,11 +448,9 @@
                               <tr>
                                 <td><span class="coe-automacao-campo">A preencher</span></td>
                                 <td><span class="coe-automacao-campo">A preencher</span></td>
-                                <td><span class="coe-automacao-campo">A preencher</span></td>
                                 <td><span class="coe-automacao-campo campo-data">A preencher</span></td>
                               </tr>
                               <tr>
-                                <td><span class="coe-automacao-campo">A preencher</span></td>
                                 <td><span class="coe-automacao-campo">A preencher</span></td>
                                 <td><span class="coe-automacao-campo">A preencher</span></td>
                                 <td><span class="coe-automacao-campo campo-data">A preencher</span></td>
@@ -466,23 +465,28 @@
                         </p>
                       </section>
 
-                      <aside class="coe-automacoes-squad" aria-labelledby="titulo-squad-automacoes">
+                      <aside class="coe-automacoes-ultima" aria-labelledby="titulo-ultima-entrega-automacao">
                         <div class="coe-automacoes-secao-header">
-                          <div><small>Atuação integrada</small><h3 id="titulo-squad-automacoes">Squad de Automações</h3></div>
+                          <div><small>Destaque mais recente</small><h3 id="titulo-ultima-entrega-automacao">Última entrega</h3></div>
+                          <span><i class="bx bx-check-circle"></i> Entregue</span>
                         </div>
 
-                        <ul class="coe-automacoes-squad-lista">
-                          <li><i class="bx bx-group"></i><span><strong>Alinhamentos semanais</strong><small>Evolução contínua das iniciativas.</small></span></li>
-                          <li><i class="bx bx-sitemap"></i><span><strong>Atuação em três áreas</strong><small>COE, Operações e Projetos.</small></span></li>
-                          <li><i class="bx bx-layer"></i><span><strong>Jornada integrada</strong><small>VMs e integração de plataformas.</small></span></li>
-                        </ul>
-
-                        <div class="coe-automacoes-ganhos">
-                          <span>Ganhos esperados</span>
+                        <div class="coe-ultima-entrega-destaque">
+                          <span class="coe-ultima-entrega-icone"><i class="bx bx-bot"></i></span>
                           <div>
-                            <small>Eficiência</small><small>Confiabilidade</small>
-                            <small>Agilidade</small><small>Padronização</small>
+                            <small>Título da automação</small>
+                            <strong id="coeUltimaAutomacaoTitulo">A preencher</strong>
                           </div>
+                        </div>
+
+                        <div class="coe-ultima-entrega-data">
+                          <i class="bx bx-calendar-check"></i>
+                          <div><span>Data da entrega</span><strong id="coeUltimaAutomacaoData">A preencher</strong></div>
+                        </div>
+
+                        <div class="coe-ultima-entrega-descricao">
+                          <span>Descrição breve</span>
+                          <p id="coeUltimaAutomacaoDescricao">Registre a automação concluída e o principal valor gerado para a operação.</p>
                         </div>
                       </aside>
                     </div>
@@ -654,10 +658,10 @@
 
   <script src="../assets/js/main.js"></script>
 
-  <script src="../assets/js/configuracoes-dashboard.js?v=20260818-13"></script>
+  <script src="../assets/js/configuracoes-dashboard.js?v=20260820-7"></script>
 
   <!-- Gráficos específicos do dashboard COE -->
-  <script src="../assets/js/dashboard-coe.js?v=20260814-3"></script>
+  <script src="../assets/js/dashboard-coe.js?v=20260820-5"></script>
 
 </body>
 

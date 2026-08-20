@@ -308,9 +308,11 @@
 
   function atualizarIniciativas() {
     let salvas = {};
+    let excluidas = [];
     try {
       const configuracoes = JSON.parse(window.localStorage.getItem('dashboardInfraCloudConfiguracoes')) || {};
       salvas = configuracoes.operacoesIniciativas || {};
+      excluidas = Array.isArray(configuracoes.operacoesIniciativasExcluidas) ? configuracoes.operacoesIniciativasExcluidas : [];
     } catch (erro) {
       console.warn('[Dashboard Operações] Não foi possível carregar as iniciativas.', erro);
     }
@@ -318,6 +320,7 @@
       return [chave, Object.assign({}, base, salvas[chave] || {})];
     }));
     Object.entries(salvas).forEach(function ([chave, item]) { if (!mapa[chave]) mapa[chave] = item; });
+    excluidas.forEach(function (chave) { delete mapa[chave]; });
     const iniciativas = Object.values(mapa).filter(item => item.status !== 'arquivada');
     const grid = obterElemento('#iniciativasGrid');
     const rotulos = { planejada: 'Planejada', andamento: 'Em andamento', pausada: 'Pausada', concluida: 'Concluída' };
@@ -347,13 +350,16 @@
 
   function atualizarMudancasTarefas() {
     let registros = { 2026: { ano: 2026, mudancas: 1921, tarefas: 2837 } };
+    let excluidos = [];
     try {
       const configuracoes = JSON.parse(window.localStorage.getItem('dashboardInfraCloudConfiguracoes')) || {};
       registros = Object.assign(registros, configuracoes.operacoesMudancasTarefas || {});
+      excluidos = Array.isArray(configuracoes.operacoesMudancasTarefasExcluidas) ? configuracoes.operacoesMudancasTarefasExcluidas.map(String) : [];
     } catch (erro) {
       console.warn('[Dashboard Operações] Não foi possível carregar mudanças e tarefas.', erro);
     }
-    const item = Object.values(registros).sort((a, b) => Number(b.ano) - Number(a.ano))[0];
+    excluidos.forEach(function (ano) { delete registros[String(ano)]; });
+    const item = Object.values(registros).sort((a, b) => Number(b.ano) - Number(a.ano))[0] || { ano: new Date().getFullYear(), mudancas: 0, tarefas: 0 };
     const mudancas = Math.max(0, Number(item.mudancas) || 0);
     const tarefas = Math.max(0, Number(item.tarefas) || 0);
     const total = mudancas + tarefas;
@@ -380,9 +386,15 @@
       incidente_gedoc: { tipo: 'incidente', titulo: 'Incidente GEDOC', referencia: 'INC4530241', status: 'Redirecionado', data: '', descricao: 'Impacto no Exchange causado pela rotina de backup executada fora da janela operacional.', detalhe: 'TLV_SI_INFRAESTRUTURA BACKUP', acao: 'Encaminhado ao time responsável · Causa em análise', visivel: true }
     };
     let salvas = {};
-    try { salvas = (JSON.parse(window.localStorage.getItem('dashboardInfraCloudConfiguracoes')) || {}).operacoesInformacoesRelevantes || {}; }
+    let excluidas = [];
+    try {
+      const configuracoes = JSON.parse(window.localStorage.getItem('dashboardInfraCloudConfiguracoes')) || {};
+      salvas = configuracoes.operacoesInformacoesRelevantes || {};
+      excluidas = Array.isArray(configuracoes.operacoesInformacoesRelevantesExcluidas) ? configuracoes.operacoesInformacoesRelevantesExcluidas : [];
+    }
     catch (erro) { console.warn('[Dashboard Operações] Não foi possível carregar as informações relevantes.', erro); }
     const mapa = Object.assign({}, base, salvas);
+    excluidas.forEach(function (chave) { delete mapa[chave]; });
     const itens = Object.values(mapa).filter(item => item.visivel !== false).sort(function (a, b) {
       return String(b.data || b.atualizadoEm || '').localeCompare(String(a.data || a.atualizadoEm || ''));
     });

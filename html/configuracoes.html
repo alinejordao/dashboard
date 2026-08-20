@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../assets/vendor/fonts/iconify-icons.css" />
   <link rel="stylesheet" href="../assets/vendor/css/core.css" />
   <link rel="stylesheet" href="../assets/css/demo.css" />
-  <link rel="stylesheet" href="../assets/css/vivo.css?v=20260818-1" />
+  <link rel="stylesheet" href="../assets/css/vivo.css?v=20260820-10" />
   <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <script src="../assets/vendor/js/helpers.js"></script>
   <script src="../assets/js/config.js"></script>
@@ -111,12 +111,137 @@
                             <label>Data de atualização<input class="form-control" type="date" name="atualizacao" value="2026-08-14" /></label>
                           </div>
                         </div>
-                        <div class="config-form-secao">
-                          <div class="config-form-titulo"><span><i class="bx bx-line-chart"></i></span><div><h3>Vivo Virtualiza</h3><p>Valores acumulados da evolução das migrações.</p></div></div>
-                          <div class="config-campos">
-                            <label>Atingido atual<input class="form-control" type="number" name="migracoes_atingido" value="4533" /></label>
-                            <label>Meta atual<input class="form-control" type="number" name="migracoes_meta" value="4979" /></label>
-                            <label>Meta final<input class="form-control" type="number" name="migracoes_meta_final" value="6000" /></label>
+                        <div class="config-form-secao config-form-secao-virtualiza" id="config-vivo-virtualiza">
+                          <div class="config-form-titulo"><span><i class="bx bx-line-chart"></i></span><div><h3>Vivo Virtualiza</h3><p>Cadastre, edite ou exclua os valores acumulados da evolução das migrações.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-virtualiza">
+                              <label>Mês<select class="form-select" id="virtualizaMes"><option value="Base">Base anual</option><option value="Jan">Janeiro</option><option value="Fev">Fevereiro</option><option value="Mar">Março</option><option value="Abr">Abril</option><option value="Mai">Maio</option><option value="Jun">Junho</option><option value="Jul">Julho</option><option value="Ago" selected>Agosto</option><option value="Set">Setembro</option><option value="Out">Outubro</option><option value="Nov">Novembro</option><option value="Dez">Dezembro</option></select></label>
+                              <label>Ano<input class="form-control" type="number" min="2025" max="2100" id="virtualizaAno" value="2026" /></label>
+                              <label>Atingido acumulado<input class="form-control" type="number" min="0" id="virtualizaAtingido" value="4533" /></label>
+                              <label>Meta acumulada<input class="form-control" type="number" min="0" id="virtualizaMeta" value="4979" /></label>
+                              <label>Meta final do programa<input class="form-control" type="number" min="1" id="virtualizaMetaFinal" value="6000" /></label>
+                              <label>Programa concluído (%)<input class="form-control" type="number" min="0" max="100" step="0.1" id="virtualizaPrograma" value="25" /></label>
+                            </div>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> Aderência, diferença, período e percentual da meta final serão recalculados automaticamente.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarVirtualiza"><i class="bx bx-plus"></i> Adicionar período</button>
+                            </div>
+                            <div class="config-agenda-historico-cabecalho config-virtualiza-gerenciar-cabecalho">
+                              <div><strong>Períodos cadastrados</strong><small>Abra somente quando precisar editar ou excluir dados</small></div>
+                              <button type="button" class="config-btn-historico" id="alternarPeriodosVirtualiza" aria-expanded="false" aria-controls="historicoVirtualiza"><i class="bx bx-edit-alt"></i><span>Gerenciar períodos</span></button>
+                            </div>
+                            <div class="config-historico config-historico-virtualiza config-registros-gerenciaveis" id="historicoVirtualiza" aria-live="polite" aria-hidden="true"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackVirtualiza"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-workshops" id="config-workshops-capacitacao">
+                          <div class="config-form-titulo"><span><i class="bx bx-chalkboard"></i></span><div><h3>Conhecimento e Evolução</h3><p>Cadastre e publique workshops e ações de capacitação no dashboard do COE.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-workshops">
+                              <label>Workshop ou capacitação<select class="form-select" id="workshopSelecionado"><option value="power_aix">Workshop POWER/AIX</option><option value="novo">+ Novo card</option></select></label>
+                              <label>Título<input class="form-control" id="workshopTitulo" maxlength="80" /></label>
+                              <label>Tema ou trilha<input class="form-control" id="workshopTema" maxlength="120" /></label>
+                              <label>Status<select class="form-select" id="workshopStatus"><option value="planejado">Planejado</option><option value="agendado">Agendado</option><option value="realizado">Realizado</option><option value="cancelado">Cancelado</option></select></label>
+                              <label>Data<input class="form-control" type="date" id="workshopData" /></label>
+                              <label>Público ou área envolvida<input class="form-control" id="workshopPublico" maxlength="100" placeholder="Opcional" /></label>
+                            </div>
+                            <label class="config-editorial-texto">Descrição executiva<textarea class="form-control" id="workshopDescricao" rows="3" maxlength="300"></textarea></label>
+                            <label class="config-check-publicacao"><input type="checkbox" id="workshopVisivel" checked /><span><strong>Exibir no dashboard</strong><small>Desmarque para manter o registro salvo sem publicá-lo no COE.</small></span></label>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> Novos registros serão exibidos dentro do card com rolagem, mantendo a página compacta.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarWorkshop"><i class="bx bx-save"></i> Salvar workshop</button>
+                            </div>
+                            <div class="config-agenda-historico-cabecalho config-workshops-gerenciar-cabecalho">
+                              <div><strong>Cards cadastrados</strong><small>Abra para editar, excluir ou revisar a publicação</small></div>
+                              <button type="button" class="config-btn-historico" id="alternarWorkshops" aria-expanded="false" aria-controls="resumoWorkshops"><i class="bx bx-edit-alt"></i><span>Gerenciar cards</span></button>
+                            </div>
+                            <div class="config-agenda-lista config-registros-gerenciaveis config-workshops-lista-config" id="resumoWorkshops" aria-live="polite" aria-hidden="true"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackWorkshop"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-entregas-relevantes" id="config-entregas-relevantes-coe">
+                          <div class="config-form-titulo"><span><i class="bx bx-star"></i></span><div><h3>Destaques e Resultados</h3><p>Cadastre entregas relevantes de qualquer área, produto ou iniciativa do COE.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-entregas-relevantes">
+                              <label>Entrega relevante<select class="form-select" id="entregaRelevanteSelecionada"><option value="scom">Monitoramento — SCOM</option><option value="nova">+ Novo card</option></select></label>
+                              <label>Título<input class="form-control" id="entregaRelevanteTitulo" maxlength="80" /></label>
+                              <label>Área ou categoria<input class="form-control" id="entregaRelevanteCategoria" maxlength="100" placeholder="Ex.: Monitoramento, Cloud, Segurança" /></label>
+                              <label>Produto ou iniciativa<input class="form-control" id="entregaRelevanteProduto" maxlength="120" /></label>
+                              <label>Status<select class="form-select" id="entregaRelevanteStatus"><option value="planejada">Planejada</option><option value="andamento">Em andamento</option><option value="concluida">Concluída</option><option value="cancelada">Cancelada</option></select></label>
+                              <label>Competência<input class="form-control" type="month" id="entregaRelevanteData" /></label>
+                            </div>
+                            <div class="config-campos config-campos-entregas-relevantes-texto">
+                              <label>Descrição executiva<textarea class="form-control" id="entregaRelevanteDescricao" rows="3" maxlength="300"></textarea></label>
+                              <label>Benefício ou resultado gerado<textarea class="form-control" id="entregaRelevanteBeneficio" rows="3" maxlength="220" placeholder="Opcional"></textarea></label>
+                            </div>
+                            <label class="config-check-publicacao"><input type="checkbox" id="entregaRelevanteVisivel" checked /><span><strong>Exibir no dashboard</strong><small>Desmarque para manter a entrega cadastrada sem publicá-la no COE.</small></span></label>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> As entregas publicadas serão organizadas no card com rolagem interna.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarEntregaRelevante"><i class="bx bx-save"></i> Salvar entrega</button>
+                            </div>
+                            <div class="config-agenda-historico-cabecalho config-entregas-relevantes-gerenciar">
+                              <div><strong>Cards cadastrados</strong><small>Abra para editar, excluir ou revisar a publicação</small></div>
+                              <button type="button" class="config-btn-historico" id="alternarEntregasRelevantes" aria-expanded="false" aria-controls="resumoEntregasRelevantes"><i class="bx bx-edit-alt"></i><span>Gerenciar cards</span></button>
+                            </div>
+                            <div class="config-agenda-lista config-registros-gerenciaveis config-entregas-relevantes-lista" id="resumoEntregasRelevantes" aria-live="polite" aria-hidden="true"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackEntregaRelevante"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-pocs" id="config-pocs-coe">
+                          <div class="config-form-titulo"><span><i class="bx bx-bulb"></i></span><div><h3>Inovação e Validação Técnica</h3><p>Inclua novas POCs e atualize status, observações e previsão de entrega.</p></div></div>
+                          <div>
+                            <div class="config-campos config-campos-pocs">
+                              <label>POC<select class="form-select" id="pocSelecionada"><option value="pacemaker">Pacemaker</option><option value="cybele">Cybele</option><option value="horizon">Horizon</option><option value="palo_alto">Palo Alto</option><option value="nova">+ Nova POC</option></select></label>
+                              <label>Nome da POC<input class="form-control" id="pocNome" maxlength="80" /></label>
+                              <label>Status<select class="form-select" id="pocStatus"><option value="planejada">Planejada</option><option value="andamento">Em andamento</option><option value="pausa">Em pausa</option><option value="concluida">Concluída</option><option value="encerrada">Encerrada</option></select></label>
+                              <label>Previsão de entrega<input class="form-control" id="pocPrevisao" maxlength="40" list="pocPrevisoesSugeridas" placeholder="Ex.: Nov/2026 ou A definir" /><datalist id="pocPrevisoesSugeridas"><option value="A definir"></option><option value="Cancelada"></option><option value="Concluída"></option></datalist></label>
+                            </div>
+                            <label class="config-editorial-texto">Observações<textarea class="form-control" id="pocObservacao" rows="3" maxlength="300"></textarea></label>
+                            <label class="config-check-publicacao"><input type="checkbox" id="pocVisivel" checked /><span><strong>Exibir no dashboard</strong><small>Desmarque para manter a POC cadastrada sem exibi-la na tabela.</small></span></label>
+                            <div class="config-disponibilidade-acoes">
+                              <small><i class="bx bx-info-circle"></i> A previsão aceita mês/ano ou textos executivos como “A definir”, “Cancelada” e “Concluída”.</small>
+                              <button class="config-btn-adicionar" type="button" id="salvarPoc"><i class="bx bx-save"></i> Salvar POC</button>
+                            </div>
+                            <div class="config-agenda-historico-cabecalho config-pocs-gerenciar">
+                              <div><strong>POCs cadastradas</strong><small>Abra para editar ou excluir registros</small></div>
+                              <button type="button" class="config-btn-historico" id="alternarPocs" aria-expanded="false" aria-controls="resumoPocs"><i class="bx bx-edit-alt"></i><span>Gerenciar POCs</span></button>
+                            </div>
+                            <div class="config-agenda-lista config-registros-gerenciaveis config-pocs-lista" id="resumoPocs" aria-live="polite" aria-hidden="true"></div>
+                            <span class="config-feedback config-feedback-disponibilidade" id="feedbackPoc"></span>
+                          </div>
+                        </div>
+                        <div class="config-form-secao config-form-secao-automacoes" id="config-automacoes-coe">
+                          <div class="config-form-titulo"><span><i class="bx bx-bot"></i></span><div><h3>Eficiência e Transformação Operacional</h3><p>Atualize a evolução mensal e registre as automações entregues.</p></div></div>
+                          <div>
+                            <section class="config-subsecao">
+                              <div class="config-subsecao-titulo"><div><strong>Evolução das publicações</strong><small>Indicadores mensais apresentados no primeiro bloco do card</small></div></div>
+                              <div class="config-campos config-campos-automacoes-evolucao">
+                                <label>Competência<input class="form-control" type="month" id="automacaoCompetencia" value="2026-06" /></label>
+                                <label>Automações publicadas<input class="form-control" type="number" min="0" id="automacaoPublicadas" value="17" /></label>
+                                <label>Próxima janela<input class="form-control" id="automacaoProximaJanela" maxlength="140" value="Novas automações previstas para agosto" /></label>
+                              </div>
+                              <div class="config-disponibilidade-acoes"><small><i class="bx bx-info-circle"></i> A variação será calculada entre as duas competências mais recentes.</small><button class="config-btn-adicionar" type="button" id="salvarEvolucaoAutomacoes"><i class="bx bx-plus"></i> Salvar competência</button></div>
+                              <div class="config-agenda-historico-cabecalho config-automacoes-gerenciar"><div><strong>Competências cadastradas</strong><small>Abra para editar ou excluir valores mensais</small></div><button type="button" class="config-btn-historico" id="alternarEvolucaoAutomacoes" aria-expanded="false" aria-controls="resumoEvolucaoAutomacoes"><i class="bx bx-edit-alt"></i><span>Gerenciar dados</span></button></div>
+                              <div class="config-historico config-registros-gerenciaveis config-automacoes-lista" id="resumoEvolucaoAutomacoes" aria-live="polite" aria-hidden="true"></div>
+                              <span class="config-feedback config-feedback-disponibilidade" id="feedbackEvolucaoAutomacoes"></span>
+                            </section>
+                            <section class="config-subsecao config-subsecao-entregas-automacoes">
+                              <div class="config-subsecao-titulo"><div><strong>Automações entregues</strong><small>A entrega mais recente também alimentará automaticamente o bloco “Última entrega”</small></div></div>
+                              <div class="config-campos config-campos-automacoes-entregas">
+                                <label>Automação<select class="form-select" id="automacaoEntregaSelecionada"><option value="nova">+ Nova automação</option></select></label>
+                                <label>Título<input class="form-control" id="automacaoEntregaTitulo" maxlength="100" /></label>
+                                <label>Data da entrega<input class="form-control" type="date" id="automacaoEntregaData" /></label>
+                              </div>
+                              <div class="config-campos config-campos-automacoes-entregas-texto">
+                                <label>Ganho obtido<textarea class="form-control" id="automacaoEntregaGanho" rows="2" maxlength="180"></textarea></label>
+                                <label>Descrição breve<textarea class="form-control" id="automacaoEntregaDescricao" rows="2" maxlength="220"></textarea></label>
+                              </div>
+                              <label class="config-check-publicacao"><input type="checkbox" id="automacaoEntregaVisivel" checked /><span><strong>Exibir no dashboard</strong><small>Controla a exibição na tabela e no destaque da última entrega.</small></span></label>
+                              <div class="config-disponibilidade-acoes"><small><i class="bx bx-info-circle"></i> A entrega visível com a data mais recente será destacada automaticamente.</small><button class="config-btn-adicionar" type="button" id="salvarAutomacaoEntrega"><i class="bx bx-save"></i> Salvar automação</button></div>
+                              <div class="config-agenda-historico-cabecalho config-automacoes-gerenciar"><div><strong>Entregas cadastradas</strong><small>Abra para editar ou excluir automações</small></div><button type="button" class="config-btn-historico" id="alternarAutomacoesEntregues" aria-expanded="false" aria-controls="resumoAutomacoesEntregues"><i class="bx bx-edit-alt"></i><span>Gerenciar entregas</span></button></div>
+                              <div class="config-agenda-lista config-registros-gerenciaveis config-automacoes-lista" id="resumoAutomacoesEntregues" aria-live="polite" aria-hidden="true"></div>
+                              <span class="config-feedback config-feedback-disponibilidade" id="feedbackAutomacaoEntrega"></span>
+                            </section>
                           </div>
                         </div>
                         <div class="config-form-secao">
@@ -353,7 +478,7 @@
                             <label class="config-check-publicacao"><input type="checkbox" id="editorialVisivel" /><span><strong>Exibir no boletim</strong><small>Quando desmarcada, a nota permanece salva, mas não aparece no dashboard.</small></span></label>
                             <div class="config-disponibilidade-acoes">
                               <small><i class="bx bx-info-circle"></i> Use uma mensagem curta e executiva para não aumentar a extensão do relatório impresso.</small>
-                              <button class="config-btn-adicionar" type="button" id="salvarNotaEditorial"><i class="bx bx-save"></i> Salvar nota editorial</button>
+                              <div class="config-editorial-acoes"><button class="config-btn-excluir" type="button" id="excluirNotaEditorial"><i class="bx bx-trash"></i> Excluir nota</button><button class="config-btn-adicionar" type="button" id="salvarNotaEditorial"><i class="bx bx-save"></i> Salvar nota editorial</button></div>
                             </div>
                             <span class="config-feedback config-feedback-disponibilidade" id="feedbackNotaEditorial"></span>
                           </div>
@@ -378,6 +503,6 @@
   <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="../assets/vendor/js/menu.js"></script>
   <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/configuracoes-dashboard.js?v=20260818-13"></script>
+  <script src="../assets/js/configuracoes-dashboard.js?v=20260820-7"></script>
 </body>
 </html>
